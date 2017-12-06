@@ -71,6 +71,26 @@ h1 {
     cursor: default;
 }
 
+.deck .card.mismatched {
+    transform: rotateY(0);
+    cursor: default;
+    animation: cardState 1s linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes cardState {
+    0%   {background: #a10505; font-size: 33px;}
+    90%  {background: #A10505; font-size: 33px;}
+    100% {background: #2e3d49; font-size: 0px;}
+}
+
+/* Standard syntax */
+@keyframes cardState {
+    0%   {background: #A10505; font-size: 33px;}
+    90%  {background: #A10505; font-size: 33px;}
+    100% {background: #2e3d49; font-size: 0px;}
+}
+
 .deck .card.show {
     font-size: 33px;
 }
