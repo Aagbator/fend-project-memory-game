@@ -38,6 +38,7 @@ h1 {
  */
 
 .deck {
+    position:relative;
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
@@ -101,6 +102,12 @@ h1 {
     font-size: 33px;
 }
 
+.timer{
+    padding: 2px 4px;
+    margin-left:50px;
+    font-size: 18px;
+}
+
 /*
  * Styles for the Score Panel
  */
@@ -126,4 +133,30 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+/*
+ * Styles for the Popup
+ */
+.popup{
+    background-color: #d1e8ff;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    text-align:center;
+}
+
+.popup h1{
+    margin-top:200px;
+}
+.play-btn{
+    background-color: #47a508;
+    color:#fff;
+    font-weight:700;
+    font-size:18px;
+    border-radius:0px;
+    padding:5px;
+    border:none;
 }

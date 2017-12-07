@@ -15,6 +15,11 @@
  var temp_card = [];
  var selected_count = 0;
  var moves = 0;
+ var status = true;
+ var rating = 0;
+ var sec = 0;
+
+ var popup = $(".popup");
 
  var list = [
      {id:1, card_id:100, matched: false, symbol: "fa-diamond"},
@@ -42,8 +47,11 @@
      temp_card = [];
      selected_count = 0;
      moves = 0;
-    list = shuffle(list);
+     list = shuffle(list);
+     updatesStars(moves);
+     updateTimer(true);
 
+     $('.popup').hide();
      $('.deck').empty();
      $(".moves").text(0);
 
@@ -55,7 +63,12 @@
         cards.push(element);
     });
 
+     $('.deck').append(popup);
+
      $('.card').on('click', function() {
+         if($(this).hasClass("match")){
+             return false;
+         }
          selected_count++;
          $(this).addClass("open show").removeClass("mismatched");
          temp_card[0] = $(this).data("id");
@@ -88,6 +101,7 @@
              }
          }
          updateMoves(moves);
+         updatesStars(moves);
      });
 }
 
@@ -96,8 +110,14 @@
 
 
 $(".restart").on('click', function () {
-    new_game();
+    restart();
 });
+
+function restart() {
+    $('.popup').hide();
+    new_game();
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -156,6 +176,35 @@ function shuffle(array) {
      $(".moves").text(moves);
  }
 
+ function updatesStars(moves){
+     rating = (moves > 60)?60:moves;
+     rating = Math.floor(rating/20);
+     console.log("ratings : "+rating+" , moves : "+moves);
+     var stars = "";
+     if(rating==0){
+         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li>";
+     }else if(rating == 1){
+         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li>";
+     }else if(rating == 2){
+         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
+     }else if(rating == 3){
+         stars = "<li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
+     }
+     $(".stars").html(stars);
+ }
+
+ function updateTimer(status) {
+
+      sec = 0;
+     if(status){
+         console.log("sec : "+sec);
+         setInterval(function () {
+             sec++;
+             $(".seconds").text(sec);
+         },1000);
+     }
+ }
+
  function checkIfAllMatched(){
      var count_matched = 0;
 
@@ -166,7 +215,9 @@ function shuffle(array) {
        }
      });
      console.log("count_matched : "+count_matched);
-     if(count_matched == 16){
-         alert("Congratulations, you won... Total Moves = "+moves);
+     if(count_matched == 2){
+         $('.popup').show();
+         var result_text = `with ${moves} moves and ${3 - rating} star in ${sec} sec`;
+         $('.result').text(result_text);
      }
  }
