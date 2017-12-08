@@ -58,7 +58,7 @@ function new_game() {
     $('.deck').empty();
     $(".moves").text(0);
 
-    var cards = [];
+    let cards = [];
     list.forEach(function (ele) {
         var element = `<li class='card' data-id='${ele.id}' data-matched='false' data-card_id='${ele.card_id}'><i class='fa ${ele.symbol}'></i></li>`;
 
@@ -143,7 +143,7 @@ function restart() {
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -171,11 +171,15 @@ function shuffle(array) {
 
 
 
-//accept a single card and set it as matched
+
+/**
+ * accept a single card and set it as matched
+ * @param {number} element - The id of the element to be matched.
+ */
 function setCardAsMatched(element) {
    // console.log("element id = " + element);
     $('.card').each(function () {
-        var picked = $(this).data("id");
+        let picked = $(this).data("id");
         if (picked == element) {
             //console.log("cards exist");
             $(this).addClass("match").attr("data-matched", "true");
@@ -183,10 +187,13 @@ function setCardAsMatched(element) {
     });
 }
 
-//accept a single card and unset it as matched
+/**
+ * accept a single card and set it as matched
+ * @param {number} element - The id of the element to be unmatched.
+ */
 function unsetCardAsMatched(element) {
     $('.card').each(function () {
-        var picked = $(this).data("id");
+        let picked = $(this).data("id");
         if (picked == element) {
             //console.log("cards unmatched");
             $(this).removeClass("open show").addClass("mismatched");
@@ -195,24 +202,30 @@ function unsetCardAsMatched(element) {
     });
 }
 
-//updates the total moves
+/**
+ * accept and update the moves on the page
+ * @param {number} moves - The total moves made so far
+ */
 function updateMoves(moves) {
     $(".moves").text(moves);
 }
 
-//updates the starts
+/**
+ * accept and update the stars on the page
+ * @param {number} moves - The total moves made so far
+ */
 function updatesStars(moves) {
     rating = (moves > 60) ? 60 : moves;
-    rating = Math.floor(rating / 20);
+    rating = Math.ceil(rating / 20);
     //console.log("ratings : " + rating + " , moves : " + moves);
-    var stars = "";
-    if (rating == 0) {
+    let stars = "";
+    if (rating == 1) {
         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li>";
-    } else if (rating == 1) {
-        stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li>";
     } else if (rating == 2) {
-        stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
+        stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li>";
     } else if (rating == 3) {
+        stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
+    } else if (rating == 4) {
         stars = "<li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
     }
     $(".stars").html(stars);
@@ -255,7 +268,7 @@ function resetTimer() {
 
 // check if all cards are matched
 function checkIfAllMatched() {
-    var count_matched = 0;
+    let count_matched = 0;
 
     $(".card").each(function () {
         var check = $(this).attr('data-matched');
@@ -267,7 +280,7 @@ function checkIfAllMatched() {
     //console.log("count_matched : " + count_matched);
     if (count_matched == 16) { //if cards are totally matched this calls the popup to show the result
         $('.popup').addClass('open-popup');
-        var result_text = `with ${moves} moves and ${3 - rating} star(s) in ${--sec} seconds`;
+        const result_text = `with ${moves} moves and ${3 - rating} star(s) in ${--sec} seconds`;
         $('.result').text(result_text);
         resetTimer();
     }
