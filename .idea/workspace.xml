@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6e6d3a3-77d4-4a19-b231-182b7418d7ab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/app.css" afterPath="$PROJECT_DIR$/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,8 +50,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="115" column="34" lean-forward="false" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+            <state relative-caret-position="326">
+              <caret line="266" column="13" lean-forward="false" selection-start-line="266" selection-start-column="6" selection-end-line="266" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#486#1522#0" expanded="false" />
@@ -64,7 +61,7 @@
                 <element signature="n#!!block;n#unsetCardAsMatched#0" expanded="false" />
                 <element signature="n#!!block;n#updateMoves#0" expanded="false" />
                 <element signature="n#!!block;n#updatesStars#0" expanded="false" />
-                <element signature="e#7446#7467#0" expanded="false" />
+                <element signature="e#7452#7473#0" expanded="false" />
                 <element signature="n#!!block;n#startTimer#0" expanded="false" />
               </folding>
             </state>
@@ -77,6 +74,7 @@
     <findStrings>
       <find>updateTimer</find>
       <find>opened_card</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -257,12 +255,12 @@
       <updated>1512210979137</updated>
       <workItem from="1512210981884" duration="2430000" />
       <workItem from="1512236404853" duration="34134000" />
-      <workItem from="1512678776757" duration="11949000" />
+      <workItem from="1512678776757" duration="12299000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48514000" />
+    <option name="totallyTimeSpent" value="48864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -336,7 +334,7 @@
             <element signature="n#!!block;n#unsetCardAsMatched#0" expanded="false" />
             <element signature="n#!!block;n#updateMoves#0" expanded="false" />
             <element signature="n#!!block;n#updatesStars#0" expanded="false" />
-            <element signature="e#7446#7467#0" expanded="false" />
+            <element signature="e#7452#7473#0" expanded="false" />
             <element signature="n#!!block;n#startTimer#0" expanded="false" />
           </folding>
         </state>
@@ -376,7 +374,7 @@
             <element signature="n#!!block;n#unsetCardAsMatched#0" expanded="false" />
             <element signature="n#!!block;n#updateMoves#0" expanded="false" />
             <element signature="n#!!block;n#updatesStars#0" expanded="false" />
-            <element signature="e#7446#7467#0" expanded="false" />
+            <element signature="e#7452#7473#0" expanded="false" />
             <element signature="n#!!block;n#startTimer#0" expanded="false" />
           </folding>
         </state>
@@ -424,7 +422,7 @@
             <element signature="n#!!block;n#unsetCardAsMatched#0" expanded="false" />
             <element signature="n#!!block;n#updateMoves#0" expanded="false" />
             <element signature="n#!!block;n#updatesStars#0" expanded="false" />
-            <element signature="e#7446#7467#0" expanded="false" />
+            <element signature="e#7452#7473#0" expanded="false" />
             <element signature="n#!!block;n#startTimer#0" expanded="false" />
           </folding>
         </state>
@@ -469,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="115" column="34" lean-forward="false" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
+        <state relative-caret-position="326">
+          <caret line="266" column="13" lean-forward="false" selection-start-line="266" selection-start-column="6" selection-end-line="266" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#486#1522#0" expanded="false" />
@@ -480,7 +478,7 @@
             <element signature="n#!!block;n#unsetCardAsMatched#0" expanded="false" />
             <element signature="n#!!block;n#updateMoves#0" expanded="false" />
             <element signature="n#!!block;n#updatesStars#0" expanded="false" />
-            <element signature="e#7446#7467#0" expanded="false" />
+            <element signature="e#7452#7473#0" expanded="false" />
             <element signature="n#!!block;n#startTimer#0" expanded="false" />
           </folding>
         </state>

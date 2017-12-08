@@ -173,11 +173,11 @@ function shuffle(array) {
 
 //accept a single card and set it as matched
 function setCardAsMatched(element) {
-    console.log("element id = " + element);
+   // console.log("element id = " + element);
     $('.card').each(function () {
         var picked = $(this).data("id");
         if (picked == element) {
-            console.log("cards exist");
+            //console.log("cards exist");
             $(this).addClass("match").attr("data-matched", "true");
         }
     });
@@ -204,7 +204,7 @@ function updateMoves(moves) {
 function updatesStars(moves) {
     rating = (moves > 60) ? 60 : moves;
     rating = Math.floor(rating / 20);
-    console.log("ratings : " + rating + " , moves : " + moves);
+    //console.log("ratings : " + rating + " , moves : " + moves);
     var stars = "";
     if (rating == 0) {
         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li>";
@@ -261,11 +261,11 @@ function checkIfAllMatched() {
         var check = $(this).attr('data-matched');
         if (check == "true") {
             count_matched++;
-            console.log(count_matched);
+            //console.log(count_matched);
         }
     });
-    console.log("count_matched : " + count_matched);
-    if (count_matched == 8) { //if cards are totally matched this calls the popup to show the result
+    //console.log("count_matched : " + count_matched);
+    if (count_matched == 16) { //if cards are totally matched this calls the popup to show the result
         $('.popup').addClass('open-popup');
         var result_text = `with ${moves} moves and ${3 - rating} star(s) in ${--sec} seconds`;
         $('.result').text(result_text);
