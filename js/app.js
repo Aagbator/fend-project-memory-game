@@ -20,6 +20,7 @@ var rating = 0;
 var sec = 0;
 var intervalId;
 var popup = $(".popup");
+var star_rating = 1;
 let time_status = 0;
 
 var list = [
@@ -216,16 +217,18 @@ function updateMoves(moves) {
  */
 function updatesStars(moves) {
     rating = (moves > 60) ? 60 : moves;
-    rating = Math.ceil(rating / 20);
+    rating = Math.floor(rating / 20);
+    star_rating = 3 - rating;
+
     //console.log("ratings : " + rating + " , moves : " + moves);
     let stars = "";
-    if (rating == 1) {
+    if (rating == 0) {
         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li>";
-    } else if (rating == 2) {
+    } else if (rating == 1) {
         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li>";
-    } else if (rating == 3) {
+    } else if (rating == 2) {
         stars = "<li><i class='fa fa-star'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
-    } else if (rating == 4) {
+    } else if (rating == 3) {
         stars = "<li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li><li><i class='fa fa-star-o'></i></li>";
     }
     $(".stars").html(stars);
@@ -278,9 +281,9 @@ function checkIfAllMatched() {
         }
     });
     //console.log("count_matched : " + count_matched);
-    if (count_matched == 16) { //if cards are totally matched this calls the popup to show the result
+    if (count_matched == 2) { //if cards are totally matched this calls the popup to show the result
         $('.popup').addClass('open-popup');
-        const result_text = `with ${moves} moves and ${3 - rating} star(s) in ${--sec} seconds`;
+        const result_text = `with ${moves} moves and ${star_rating} star(s) in ${--sec} seconds`;
         $('.result').text(result_text);
         resetTimer();
     }
